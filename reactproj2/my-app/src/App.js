@@ -45,7 +45,6 @@ class App extends React.Component {
     this.setState({inputValue: ''});
     this.setState({list: tmpList})
     this.nameInput.focus();
-
   }
 
   handleInputValue(event) {
@@ -91,7 +90,7 @@ class App extends React.Component {
   render() {
   return (
     <div className="App">
-      <Card style={{width:'500px',background: '#f0f0f0'}} title="React ToDoList" headStyle={{borderBottom:0}}>
+      <Card style={{width:'500px',background: '#f0f0f0'}} title={<span style={{fontSize:28}}>React ToDoList</span>} headStyle={{borderBottom:0}} bodyStyle={{paddingTop:0,paddingBottom:0}}>
         <List
         size="large"
         bordered
@@ -100,7 +99,7 @@ class App extends React.Component {
         renderItem={
           (item, index) => (
             <List.Item>
-            <Checkbox style={{marginRight: 20}} onChange={this.handleSwitch.bind(this, index)} checked = {item[1] ? false : true} />
+            <Checkbox style={{marginRight: 20}} onChange={this.handleSwitch.bind(this, index)} checked = {item[1] ? true : false} />
             <div onClick={this.removeItem.bind(this, index)} style={{cursor:"pointer"}}>
             {item[1] ? <div style={{textDecoration:"line-through"}}>{item[0]}</div> : <div>{item[0]}</div>}
             </div>
